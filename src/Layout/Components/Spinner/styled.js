@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const SpinnerContainer = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
 `;
@@ -14,11 +12,8 @@ export const CubeSpinner = styled.div`
   width: 10px;
   background-color: #ffffff;
   position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 0;
-  bottom: 0;
+  left: 50%;
+  top: 50%;
   box-shadow: 0px 40px 0px 0px #ffffff, 0px -40px 0px 0px #ffffff,
     40px 0px 0px 0px #ffffff, -40px 0px 0px 0px #ffffff,
     40px 40px 0px 0px #ffffff, -40px -40px 0px 0px #ffffff,
@@ -27,7 +22,8 @@ export const CubeSpinner = styled.div`
   -moz-animation: load 3s infinite linear;
   -o-animation: load 3s infinite linear;
   animation: load 3s infinite linear;
-
+  outline: 5px dashed ${({ theme }) => theme.colors.secondary};
+  padding: 5px;
   @-webkit-keyframes load {
     0% {
       -webkit-transform: translate(0px, 0px), rotate(0deg);
