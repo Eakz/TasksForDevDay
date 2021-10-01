@@ -1,9 +1,20 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import FullPageSpinner from '../Layout/Components/Spinner/FullPageSpinner';
+import { ANIMATION_TIMING } from './constants';
 
-const LandingPage = lazy(() => import('../Layout/LandingPage'));
-const Day1 = lazy(() => import('../Tasks/Day1'));
+const LandingPage = lazy(() => {
+  return Promise.all([
+    import('../Layout/LandingPage'),
+    new Promise((resolve) => setTimeout(resolve, ANIMATION_TIMING)),
+  ]).then(([moduleExports]) => moduleExports);
+});
+const Day1 = lazy(() => {
+  return Promise.all([
+    import('../Tasks/Day1'),
+    new Promise((resolve) => setTimeout(resolve, ANIMATION_TIMING)),
+  ]).then(([moduleExports]) => moduleExports);
+});
 
 export const pages = {
   landing: '/',
@@ -23,7 +34,9 @@ const renderRoute = ({ path, component: Component }) => (
     key={path}
     path={path}
     exact
-    render={(props) => <Component {...props} />}
+    render={(props) => {
+      return <Component {...props} />;
+    }}
   />
 );
 

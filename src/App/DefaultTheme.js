@@ -4,6 +4,7 @@ const defTheme = {
     mainBackground: '#fff',
     primary: '#305f72', // Bluesh
     secondary: '#f08b8c', // Pinkiesh
+    tertiary: '#f1d0b4', // Yellowish
   },
   fontSize: {
     small: 12,
@@ -13,6 +14,7 @@ const defTheme = {
   },
   layout: {
     navBarHeight: 100,
+    footerHeight: 50,
   },
 };
 

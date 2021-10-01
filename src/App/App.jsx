@@ -4,9 +4,11 @@ import RenderRoutes from './Navigation';
 import { ThemeProvider } from 'styled-components';
 import defTheme from './DefaultTheme';
 import MainLayout from '../Layout/MainLayout';
+import GlobalCSS from './global.css';
 
 const AppThisIs = () => (
   <ThemeProvider theme={defTheme}>
+    <GlobalCSS />
     <BrowserRouter>
       <MainLayout>
         <RenderRoutes />
